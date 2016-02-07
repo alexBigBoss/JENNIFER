@@ -38,6 +38,11 @@
                 <!--android:name="android.support.PARENT_ACTIVITY"-->
                 <!--android:value="com.jennifer.controller.MainActivity" />-->
         </activity>
+        <activity
+            android:name=".controller.ApPublicasController"
+            android:label="@string/title_activity_apuestas_publicas"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
