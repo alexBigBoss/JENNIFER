@@ -1,8 +1,6 @@
 package com.jennifer.adapter;
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.os.AsyncTask;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
@@ -14,14 +12,8 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.jennifer.R;
-import com.jennifer.connection.ServerConnection;
 import com.jennifer.model.UsuarioApuestaPrivada;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,11 +21,10 @@ import java.util.List;
  */
 public class UsuariosApuestasPrivadaAdapter extends RecyclerView.Adapter<UsuariosApuestasPrivadaAdapter.ViewHolder> {
 
-    private List<UsuarioApuestaPrivada> items = new ArrayList<>();
+    private List<UsuarioApuestaPrivada> items;
 
-    public UsuariosApuestasPrivadaAdapter() {
-        DataFromWeb dataFromWeb = new DataFromWeb();
-        dataFromWeb.execute();
+    public UsuariosApuestasPrivadaAdapter(List<UsuarioApuestaPrivada> items) {
+        this.items = items;
     }
 
     private PopupWindow popUpWindow;
@@ -41,7 +32,7 @@ public class UsuariosApuestasPrivadaAdapter extends RecyclerView.Adapter<Usuario
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.apuesta_row, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.content_apuestas_publicas, viewGroup, false);
 
         return new ViewHolder(v);
     }
@@ -52,6 +43,7 @@ public class UsuariosApuestasPrivadaAdapter extends RecyclerView.Adapter<Usuario
 
         // Data Set
         viewHolder.name.setText(item.getName());
+        viewHolder.description.setText(item.getDescription());
 
         viewHolder.cv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,68 +75,13 @@ public class UsuariosApuestasPrivadaAdapter extends RecyclerView.Adapter<Usuario
 
         private final CardView cv;
         private final TextView name;
+        private final TextView description;
 
         ViewHolder(View v) {
             super(v);
-            cv = (CardView) v.findViewById(R.id.cv);
-            name = (TextView) v.findViewById(R.id.text);
+            cv = (CardView) v.findViewById(R.id.cv_apublicas);
+            name = (TextView) v.findViewById(R.id.nombre_apuesta);
+            description = (TextView) v.findViewById(R.id.descripcion_apuesta);
         }
     }
-
-    public class DataFromWeb extends AsyncTask<Void, Void, Boolean> {
-
-        private final String URL = "http://excellentprogrammers.esy.es/Script/UsuarioApuestaPrivada/UsuarioApuestaPrivada.php";
-        private final String TAG_ARRAY_PRIVADA = "apuesta_array";
-        private final String TAG_ID = "id";
-        private final String TAG_NAME = "name";
-        private final String TAG_DESCRIPTION = "description";
-        private ProgressDialog pDialog;
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-//            pDialog = new ProgressDialog((LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE));
-//            pDialog.setMessage("Cargando info. Por favor espere...");
-//            pDialog.setIndeterminate(false);
-//            pDialog.setCancelable(false);
-//            pDialog.show();
-        }
-
-        @Override
-        protected Boolean doInBackground(Void... args) {
-            StringBuilder params = new StringBuilder();
-            JSONArray JSONArray;
-            ServerConnection serverConnection = new ServerConnection();
-            JSONObject json;
-            JSONObject instance;
-            UsuarioApuestaPrivada apuestaPrivada;
-
-            params.append("type").append("=").append(1)
-                    .append("id").append("=").append(1);
-
-            json = serverConnection.makeHttpRequestPost(URL, params.toString());
-
-            try {
-                JSONArray = json.getJSONArray(TAG_ARRAY_PRIVADA);
-
-                for (int i = 0; i < JSONArray.length(); i++) {
-                    instance = JSONArray.getJSONObject(i);
-                    apuestaPrivada = new UsuarioApuestaPrivada();
-                    apuestaPrivada.setId(instance.getInt(TAG_ID));
-                    apuestaPrivada.setName(instance.getString(TAG_NAME));
-                    apuestaPrivada.setDescription(instance.getString(TAG_DESCRIPTION));
-                    items.add(apuestaPrivada);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return true;
-        }
-
-        @Override
-        protected void onPostExecute(Boolean file_url) {
-
-        }
-    }
-
 }

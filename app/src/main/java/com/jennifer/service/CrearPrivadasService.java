@@ -1,4 +1,4 @@
-package com.jennifer.controller;
+package com.jennifer.service;
 
 import android.app.Activity;
 import android.os.AsyncTask;

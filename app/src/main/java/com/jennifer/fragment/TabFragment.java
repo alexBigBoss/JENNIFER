@@ -12,6 +12,7 @@ import com.jennifer.R;
 import com.jennifer.adapter.UsuariosApuestasPrivadaAdapter;
 import com.jennifer.adapter.UsuariosInvitacionesAdapter;
 import com.jennifer.model.User;
+import com.jennifer.service.UsuariosApuestasPrivadasService;
 
 import java.util.ArrayList;
 
@@ -41,31 +42,28 @@ public class TabFragment extends android.support.v4.app.Fragment {
         View v = null;
         ArrayList<User> items;
         RecyclerView recyclerView;
+        UsuariosApuestasPrivadasService service;
 
         switch (tabPosition) {
             case 1:
-            case 2:
-
                 v = inflater.inflate(R.layout.fragment_list_view, container, false);
-                recyclerView = (RecyclerView) v.findViewById(R.id.recyclerview);
-                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                recyclerView.setAdapter(new UsuariosApuestasPrivadaAdapter());
-
-                // use this setting to improve performance if you know that changes
-                // in content do not change the layout size of the RecyclerView
-                recyclerView.setHasFixedSize(true);
+                service = new UsuariosApuestasPrivadasService(getActivity(), v, 1);
+                service.execute();
+                break;
+            case 2:
+                v = inflater.inflate(R.layout.fragment_list_view, container, false);
+                service = new UsuariosApuestasPrivadasService(getActivity(), v, 2);
+                service.execute();
                 break;
             case 3:
                 items = new ArrayList<User>();
                 for (int i = 0; i < 50; i++) {
                     items.add(new User("titulo " + (i + 1), R.mipmap.ic_launcher));
                 }
-
                 v = inflater.inflate(R.layout.fragment_list_view, container, false);
                 recyclerView = (RecyclerView) v.findViewById(R.id.recyclerview);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                 recyclerView.setAdapter(new UsuariosInvitacionesAdapter(items));
-
                 // use this setting to improve performance if you know that changes
                 // in content do not change the layout size of the RecyclerView
                 recyclerView.setHasFixedSize(true);
