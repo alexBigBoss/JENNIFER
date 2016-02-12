@@ -17,7 +17,7 @@ import android.view.MenuItem;
 import com.jennifer.R;
 import com.jennifer.adapter.TabAdapter;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivityController extends AppCompatActivity
         implements OnNavigationItemSelectedListener {
 
     @Override
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         if (id == R.id.crear_privadas) {
-            Intent actCrearPrivadas = new Intent(getApplicationContext(), CrearPrivadas.class);
+            Intent actCrearPrivadas = new Intent(getApplicationContext(), CrearPrivadasController.class);
             startActivity(actCrearPrivadas);
         }
 

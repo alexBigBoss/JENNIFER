@@ -26,7 +26,7 @@ import java.util.Locale;
 /**
  * Created by felix on 07/02/2016.
  */
-public class CrearPrivadas extends AppCompatActivity implements View.OnClickListener {
+public class CrearPrivadasController extends AppCompatActivity implements View.OnClickListener {
 
     /*Algunas declaraciones*/
     int i;
@@ -112,13 +112,13 @@ public class CrearPrivadas extends AppCompatActivity implements View.OnClickList
     };
 
     public void dateOnClick(View view) {
-        hideSoftKeyboard(CrearPrivadas.this);
-        new DatePickerDialog(CrearPrivadas.this, date, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH)).show();
+        hideSoftKeyboard(CrearPrivadasController.this);
+        new DatePickerDialog(CrearPrivadasController.this, date, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH)).show();
     }
 
     public void timeOnClick(View view) {
-        hideSoftKeyboard(CrearPrivadas.this);
-        new TimePickerDialog(CrearPrivadas.this, time, c.get(Calendar.HOUR), c.get(Calendar.MINUTE), false).show();
+        hideSoftKeyboard(CrearPrivadasController.this);
+        new TimePickerDialog(CrearPrivadasController.this, time, c.get(Calendar.HOUR), c.get(Calendar.MINUTE), false).show();
     }
 
     public void setCurrentDateOnView() {
@@ -132,13 +132,13 @@ public class CrearPrivadas extends AppCompatActivity implements View.OnClickList
     }
 
     /*Esconde el teclado*/
-    public void hideSoftKeyboard(CrearPrivadas activity) {
-        InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(CrearPrivadas.INPUT_METHOD_SERVICE);
+    public void hideSoftKeyboard(CrearPrivadasController activity) {
+        InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(CrearPrivadasController.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
     }
 
     protected void insertToDataBase(String titulo, String descripcion, String fecha, String hora, int tipoApuesta2, Double premio, List<String> usuarios, List<String> respuestas) {
-        CrearPrivadasService cps = new CrearPrivadasService(CrearPrivadas.this, titulo, descripcion, fecha, hora, tipoApuesta2, premio, usuarios, respuestas);
+        CrearPrivadasService cps = new CrearPrivadasService(CrearPrivadasController.this, titulo, descripcion, fecha, hora, tipoApuesta2, premio, usuarios, respuestas);
         cps.execute();
     }
 

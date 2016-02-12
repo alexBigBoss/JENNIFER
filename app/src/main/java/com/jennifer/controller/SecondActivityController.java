@@ -9,7 +9,7 @@ import android.view.MenuItem;
 
 import com.jennifer.R;
 
-public class SecondActivity extends AppCompatActivity {
+public class SecondActivityController extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

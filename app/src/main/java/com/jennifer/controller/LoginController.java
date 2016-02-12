@@ -341,7 +341,7 @@ public class LoginController extends AppCompatActivity implements LoaderCallback
 
             if (success) {
                 finish();
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivityController.class);
                 startActivity(intent);
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));

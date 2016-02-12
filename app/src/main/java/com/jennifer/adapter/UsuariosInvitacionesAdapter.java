@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 
 import com.jennifer.R;
-import com.jennifer.controller.SecondActivity;
+import com.jennifer.controller.SecondActivityController;
 import com.jennifer.model.User;
 
 import java.util.List;
@@ -50,7 +50,7 @@ public class UsuariosInvitacionesAdapter extends RecyclerView.Adapter<UsuariosIn
             @Override
             public void onClick(View view) {
                 Context context = view.getContext();
-                context.startActivity(new Intent(context, SecondActivity.class));
+                context.startActivity(new Intent(context, SecondActivityController.class));
             }
         });
 
@@ -58,7 +58,7 @@ public class UsuariosInvitacionesAdapter extends RecyclerView.Adapter<UsuariosIn
             @Override
             public void onClick(View view) {
                 Context context = view.getContext();
-                context.startActivity(new Intent(context, SecondActivity.class));
+                context.startActivity(new Intent(context, SecondActivityController.class));
             }
         });
 
