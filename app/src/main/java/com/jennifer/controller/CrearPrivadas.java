@@ -128,8 +128,8 @@ public class CrearPrivadas extends AppCompatActivity implements View.OnClickList
     }
 
     protected void insertToDataBase(String titulo, String descripcion, String fecha, String tipoApuesta, Double premio, List<String> usuarios, List<String> respuestas, int contadorUsuarios, int contadorRespuestas) {
-        CrearPrivadasService cps = new CrearPrivadasService(CrearPrivadas.this, titulo, descripcion, fecha, tipoApuesta, premio, usuarios, respuestas, contadorUsuarios, contadorRespuestas);
-        cps.execute();
+//        CrearPrivadasService cps = new CrearPrivadasService(CrearPrivadas.this, titulo, descripcion, fecha, tipoApuesta, premio, usuarios, respuestas, contadorUsuarios, contadorRespuestas);
+//        cps.execute();
     }
 
     public void onClick(View v) {

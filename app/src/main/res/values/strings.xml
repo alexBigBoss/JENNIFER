@@ -98,10 +98,6 @@
         <item>Pre-Apuesta</item>
         <item>Tiempo Real</item>
     </string-array>
-<<<<<<< HEAD
-=======
     <string name="title_activity_activity_invitar_contactos">Invitar Contactos</string>
     <string name="title_contactos">Lista Contactos</string>
-
->>>>>>> refs/heads/pr/9
 </resources>
