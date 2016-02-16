@@ -19,7 +19,6 @@
             android:name=".controller.LoginController"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,28 +28,51 @@
         <activity
             android:name=".controller.MainActivityController"
             android:label="@string/app_name"
+<<<<<<< HEAD
             android:theme="@style/AppTheme.NoActionBar"/>
 
+=======
+            android:theme="@style/AppTheme.NoActionBar" />
+>>>>>>> refs/heads/pr/9
         <activity
             android:name=".controller.SecondActivityController"
             android:label="@string/title_activity_second"
             android:theme="@style/AppTheme.NoActionBar">
-            <!--<meta-data-->
-                <!--android:name="android.support.PARENT_ACTIVITY"-->
-                <!--android:value="com.jennifer.controller.MainActivity" />-->
+
+            <!-- <meta-data -->
+            <!-- android:name="android.support.PARENT_ACTIVITY" -->
+            <!-- android:value="com.jennifer.controller.MainActivity" /> -->
         </activity>
         <activity
+<<<<<<< HEAD
             android:name=".controller.CrearPrivadasController"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <!--<meta-data-->
             <!--android:name="android.support.PARENT_ACTIVITY"-->
             <!--android:value="com.jennifer.controller.MainActivity" />-->
+=======
+            android:name=".controller.CrearPrivadas"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+
+            <!-- <meta-data -->
+            <!-- android:name="android.support.PARENT_ACTIVITY" -->
+            <!-- android:value="com.jennifer.controller.MainActivity" /> -->
+>>>>>>> refs/heads/pr/9
         </activity>
         <activity
             android:name=".controller.ApPublicasController"
             android:label="@string/title_activity_apuestas_publicas"
+<<<<<<< HEAD
             android:theme="@style/AppTheme.NoActionBar"/>
+=======
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".controller.InvitarContactosController"
+            android:label="@string/title_activity_activity_invitar_contactos"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+>>>>>>> refs/heads/pr/9
     </application>
 
 </manifest>
